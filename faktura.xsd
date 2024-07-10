@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="IzlazneFakture">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IzlaznaFaktura" type="IzlaznaFakturaType" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="IzlaznaFakturaType">
+    <xs:sequence>
+      <xs:element nillable="true" name="BrojFakture" type="xs:int"/>
+      <xs:element nillable="true" name="DatumFakture" type="xs:date"/>
+      <xs:element nillable="true" name="DatumValute" type="xs:date"/>
+      <xs:element nillable="true" name="RacunZaUplatu" type="xs:string"/>
+      <xs:element nillable="true" name="IsPotvrdjeno" type="xs:boolean"/>
+      <xs:element nillable="true" name="StatusFakture" type="StatusFaktureType"/>
+      <xs:element nillable="true" name="VrstaFakture" type="VrstaFaktureType"/>
+      <xs:element nillable="true" name="UkupnaOsnovica" type="xs:decimal"/>
+      <xs:element nillable="true" name="UkupanRabat" type="xs:decimal"/>
+      <xs:element nillable="true" name="UkupanPDV" type="xs:decimal"/>
+      <xs:element nillable="true" name="UkupanIznos" type="xs:decimal"/>
+      <xs:element nillable="true" name="Preduzece" type="PreduzeceType"/>
+      <xs:element nillable="true" name="PoslovniPartner" type="PoslovniPartnerType"/>
+      <xs:element nillable="true" name="StavkaFakture" type="StavkaFaktureType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PreduzeceType">
+    <xs:sequence>
+      <xs:element nillable="true" name="Naziv" type="xs:string"/>
+      <xs:element nillable="true" name="AdresaIBroj" type="xs:string"/>
+      <xs:element nillable="true" name="GradIPostanskiBroj" type="xs:string"/>
+      <xs:element nillable="true" name="Telefon" type="xs:string"/>
+      <xs:element nillable="true" name="PIB" type="xs:string"/>
+      <xs:element nillable="true" name="MaticniBroj" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PoslovniPartnerType">
+    <xs:sequence>
+      <xs:element nillable="true" name="Naziv" type="xs:string"/>
+      <xs:element nillable="true" name="AdresaIBroj" type="xs:string"/>
+      <xs:element nillable="true" name="GradIPostanskiBroj" type="xs:string"/>
+      <xs:element nillable="true" name="Telefon" type="xs:string"/>
+      <xs:element nillable="true" name="PIB" type="xs:string"/>
+      <xs:element nillable="true" name="MaticniBroj" type="xs:string"/>
+      <xs:element nillable="true" name="TekuciRacun" type="xs:string"/>
+      <xs:element nillable="true" name="Preduzece" type="PreduzeceType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="StavkaFaktureType">
+    <xs:sequence>
+      <xs:element nillable="true" name="Kolicina" type="xs:decimal"/>
+      <xs:element nillable="true" name="Rabat" type="xs:decimal"/>
+      <xs:element nillable="true" name="Vrednost" type="xs:decimal"/>
+      <xs:element nillable="true" name="OsnovicaPDV" type="xs:decimal"/>
+      <xs:element nillable="true" name="IznosPDV" type="xs:decimal"/>
+      <xs:element nillable="true" name="CenaSaPDV" type="xs:decimal"/>
+      <xs:element nillable="true" name="VrednostRabata" type="xs:decimal"/>
+      <xs:element nillable="true" name="ProdajnaVrednost" type="xs:decimal"/>
+      <xs:element nillable="true" name="RobaIliUsluga" type="RobaIliUslugaType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RobaIliUslugaType">
+    <xs:sequence>
+      <xs:element nillable="true" name="Naziv" type="xs:string"/>
+      <xs:element nillable="true" name="Opis" type="xs:string"/>
+      <xs:element nillable="true" name="IsRoba" type="xs:boolean"/>
+      <xs:element nillable="true" name="Kategorija" type="KategorijaType"/>
+      <xs:element nillable="true" name="JedinicaMere" type="JedinicaMereType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="KategorijaType">
+    <xs:sequence>
+      <xs:element nillable="true" name="Naziv" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="JedinicaMereType">
+    <xs:sequence>
+      <xs:element nillable="true" name="Naziv" type="xs:string"/>
+      <xs:element nillable="true" name="SkraceniNaziv" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="StatusFaktureType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UFaziFormiranja"/>
+      <xs:enumeration value="Poslata"/>
+      <xs:enumeration value="Stornirana"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="VrstaFaktureType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Profaktura"/>
+      <xs:enumeration value="Faktura"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
