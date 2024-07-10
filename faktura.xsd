@@ -14,7 +14,6 @@
       <xs:element nillable="true" name="DatumFakture" type="xs:date"/>
       <xs:element nillable="true" name="DatumValute" type="xs:date"/>
       <xs:element nillable="true" name="RacunZaUplatu" type="xs:string"/>
-      <xs:element nillable="true" name="IsPotvrdjeno" type="xs:boolean"/>
       <xs:element nillable="true" name="StatusFakture" type="StatusFaktureType"/>
       <xs:element nillable="true" name="VrstaFakture" type="VrstaFaktureType"/>
       <xs:element nillable="true" name="UkupnaOsnovica" type="xs:decimal"/>
@@ -58,7 +57,6 @@
       <xs:element nillable="true" name="Vrednost" type="xs:decimal"/>
       <xs:element nillable="true" name="OsnovicaPDV" type="xs:decimal"/>
       <xs:element nillable="true" name="IznosPDV" type="xs:decimal"/>
-      <xs:element nillable="true" name="CenaSaPDV" type="xs:decimal"/>
       <xs:element nillable="true" name="VrednostRabata" type="xs:decimal"/>
       <xs:element nillable="true" name="ProdajnaVrednost" type="xs:decimal"/>
       <xs:element nillable="true" name="RobaIliUsluga" type="RobaIliUslugaType"/>
